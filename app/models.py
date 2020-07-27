@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_rest_jsonapi import ResourceDetail, ResourceList
+from .serializer import UserSchema
 
 db = SQLAlchemy()
 
@@ -23,3 +24,13 @@ class Ponto(db.Model):
   tipo_batida = db.Column(db.Integer)
 
 
+class UserOne(ResourceList):
+  schema = UserSchema
+  data_layer = {'session': db.session,
+                'model': User}
+
+
+class UserMany(ResourceDetail):
+  schema = UserSchema
+  data_layer = {'session': db.session,
+                'model': User}
