@@ -1,3 +1,5 @@
 flask-rest-jsonapi
 flask-sqlalchemy
 flask-migrate
+flask_marshmallow
+marshmallow_sqlalchemy
