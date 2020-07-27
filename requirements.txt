@@ -1,0 +1,3 @@
+flask-rest-jsonapi
+flask-sqlalchemy
+flask-migrate
