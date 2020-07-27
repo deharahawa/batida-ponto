@@ -13,8 +13,8 @@ class UserSchema(Schema):
     self_view_kwargs = {'id': '<id>'}
     self_view_many = 'user_many'
 
-    id = fields.Integer()
-    nome_completo = fields.Str(required=True)
-    cpf = fields.Integer()
-    email = fields.Str(required=True)
+    id = fields.Integer(dump_only=True)
+    nome_completo = fields.Str(required=True, validate=must_not_be_blank)
+    cpf = fields.Str(required=True,validate=must_not_be_blank)
+    email = fields.Str(required=True, validate=must_not_be_blank)
     data_cadastro = fields.DateTime(dump_only=True)
