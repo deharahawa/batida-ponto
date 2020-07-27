@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_rest_jsonapi import ResourceDetail, ResourceList
 
 db = SQLAlchemy()
 
@@ -20,3 +21,5 @@ class Ponto(db.Model):
   user = db.relationship('User')
   data_batida = db.Column(db.DateTime)
   tipo_batida = db.Column(db.Integer)
+
+
