@@ -13,6 +13,7 @@ class User(db.Model):
   email = db.Column(db.String(255))
   data_cadastro = db.Column(db.DateTime)
 
+
 class Ponto(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
