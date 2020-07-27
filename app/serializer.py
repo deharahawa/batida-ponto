@@ -29,4 +29,3 @@ class PontoSchema(Schema):
   user = fields.Nested(UserSchema, validate=must_not_be_blank)
   data_batida = fields.DateTime(dump_only=True)
   tipo_batida = fields.Integer()
-
