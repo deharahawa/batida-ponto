@@ -23,6 +23,7 @@ source .venv/bin/activate
 ## Como rodar o app
 ```sh
 export FLASK_APP=app
+export FLASK_DEBUG=True
 
 flask run
 ```
