@@ -1,7 +1,10 @@
 from marshmallow_jsonapi.flask import Schema
 from marshmallow_jsonapi import fields
+from marshmallow import ValidationError
 
-
+def must_not_be_blank(data):
+  if not data:
+    raise ValidationError('Dado não informado')
 
 class UserSchema(Schema):
   class Meta:
