@@ -5,9 +5,10 @@ O sistema deve permitir o cadastro de usuários e o registro de ponto dos
 mesmos.
 
 ## Requisitos
-flask-rest-jsonapi
-flask-sqlalchemy
-flask-migrate
+- flask-rest-jsonapi
+- flask-sqlalchemy
+- flask-migrate
+
 Para instalar basta rodar 
 ```
 pip3 install -r requirements.txt
