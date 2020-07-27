@@ -8,6 +8,10 @@ mesmos.
 flask-rest-jsonapi
 flask-sqlalchemy
 flask-migrate
+Para instalar basta rodar 
+```
+pip3 install -r requirements.txt
+```
 
 ## Configurar ambiente virtual
 ```sh
