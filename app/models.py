@@ -9,7 +9,7 @@ def configure(app):
 class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   nome_completo = db.Column(db.String(255))
-  cpf = db.Column(db.Integer(11))
+  cpf = db.Column(db.String(11))
   email = db.Column(db.String(255))
   data_cadastro = db.Column(db.DateTime)
 
