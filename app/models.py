@@ -18,5 +18,5 @@ class Ponto(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
   user = db.relationship('User')
-  data_batida = db.column(db.DateTime)
-  tipo_batida = db.column(db.Integer(1))
+  data_batida = db.Column(db.DateTime)
+  tipo_batida = db.Column(db.Integer)
