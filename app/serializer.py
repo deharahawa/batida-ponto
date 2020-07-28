@@ -26,6 +26,7 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
   cpf = fields.Str(required=True,validate=must_not_be_blank)
   email = fields.Str(required=True, validate=must_not_be_blank)
   data_cadastro = fields.DateTime(dump_only=True)
+  # pontos = ma.Nested(PontoSchema, many=True)
 
 
 # class PontoSchema(Schema):
@@ -36,5 +37,6 @@ class PontoSchema(ma.SQLAlchemyAutoSchema):
   #   self_view_kwargs = {'id': '<id>'}
   id = fields.Integer()
   user = fields.Nested(UserSchema, validate=must_not_be_blank)
+  user_id = fields.Integer()
   data_batida = fields.DateTime(dump_only=True)
   tipo_batida = fields.Integer()

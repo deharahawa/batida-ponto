@@ -16,12 +16,13 @@ class User(db.Model):
   cpf = db.Column(db.String(11))
   email = db.Column(db.String(255))
   data_cadastro = db.Column(db.DateTime)
+  # pontos = db.relationship('Ponto', backref='usuario', lazy=True)
 
 
 class Ponto(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-  user = db.relationship('User')
+  user = db.relationship('User', backref='checks')
   data_batida = db.Column(db.DateTime)
   tipo_batida = db.Column(db.Integer)
 

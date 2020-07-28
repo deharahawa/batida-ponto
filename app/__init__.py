@@ -20,4 +20,7 @@ def create_app():
   from .users import user_blueprint
   app.register_blueprint(user_blueprint)
 
+  from .checks import ponto_blueprint
+  app.register_blueprint(ponto_blueprint)
+
   return app
