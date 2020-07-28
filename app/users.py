@@ -2,8 +2,6 @@ from flask import Blueprint, request, jsonify, current_app
 from .serializer import UserSchema
 from .models import User
 from datetime import datetime
-from json import JSONEncoder
-import json
 
 user_blueprint = Blueprint('usuarios', __name__)
 
