@@ -6,21 +6,24 @@ from flask_marshmallow import Marshmallow
 ma = Marshmallow()
 
 def configure(app):
+  """
+  Factory para poder configurar
+  """
   ma.init_app(app)
 
 
 def must_not_be_blank(data):
+  """
+  Valida que os dados nao estao em branco
+  """
   if not data:
     raise ValidationError('Dado não informado')
 
 # class UserSchema(Schema):
 class UserSchema(ma.SQLAlchemyAutoSchema):
-  class Meta:
-    type_ = 'user'
-    self_view = 'user_one'
-    self_view_kwargs = {'id': '<id>'}
-    self_view_many = 'user_many'
-
+  """
+  Define o Schema do User
+  """
   id = fields.Integer()
   nome_completo = fields.Str(required=True, validate=must_not_be_blank)
   cpf = fields.Str(required=True,validate=must_not_be_blank)
@@ -31,10 +34,6 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
 
 # class PontoSchema(Schema):
 class PontoSchema(ma.SQLAlchemyAutoSchema):
-  # class Meta:
-  #   type_ = 'ponto'
-  #   self_view = 'ponto_one'
-  #   self_view_kwargs = {'id': '<id>'}
   id = fields.Integer()
   user = fields.Nested(UserSchema, validate=must_not_be_blank)
   user_id = fields.Integer()
