@@ -12,11 +12,14 @@ def create_app():
   # remove error from track mod
   app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+  # Configura DB
   config_db(app)
+  # Configura Marshmallow
   config_ma(app)
-
+  # Realiza migration
   Migrate(app, app.db)
-
+  
+  # Import dos blueprints
   from .users import user_blueprint
   app.register_blueprint(user_blueprint)
 
