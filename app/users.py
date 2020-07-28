@@ -29,3 +29,18 @@ def cadastrar():
 def mostrar():
   result = User.query.all()
   return UserSchema(many=True).jsonify(result), 200
+
+
+@user_blueprint.route('/modificar/<identificador>', methods=['POST'])
+def modificar(identificador):
+    user_schema = UserSchema()
+    query = User.query.filter(User.id == identificador)
+    query.update(request.json)
+    current_app.db.session.commit()
+    return user_schema.jsonify(query.first())
+
+@user_blueprint.route('/deletar/<identificador>', methods=['GET'])
+def deletar(identificador):
+    User.query.filter(User.id == identificador).delete()
+    current_app.db.session.commit()
+    return jsonify('Deletado')
